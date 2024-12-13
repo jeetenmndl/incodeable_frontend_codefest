@@ -1,5 +1,5 @@
 
-import Layout from '@/components/section/Layout'
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import getDoctorBookings from '@/lib/actions/getDoctorBookings'

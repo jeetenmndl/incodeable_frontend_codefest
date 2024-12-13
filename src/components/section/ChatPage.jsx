@@ -13,6 +13,8 @@ import {
   Window,
 } from 'stream-chat-react';
 // import 'stream-chat-react/dist/css/index.css';
+
+//eslint-disable-next-line
 import "@stream-io/stream-chat-css/dist/v2/css/index.css";
 
 import { streamToken } from '@/lib/actions/stream';

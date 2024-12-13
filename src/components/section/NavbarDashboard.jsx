@@ -5,8 +5,8 @@ import Image from "next/image"
 import { SignedIn, SignedOut, UserButton, UserProfile } from "@clerk/nextjs"
 import { Button } from "../ui/button"
 import Link from "next/link"
-import DashboardNavLinks from "../parts/DashboardNavlinks"
 import { usePathname, useRouter } from "next/navigation"
+import DashboardNavLinks from "../parts/DashboardNavLinks"
    
   export default function NavbarDashboard() {
 
