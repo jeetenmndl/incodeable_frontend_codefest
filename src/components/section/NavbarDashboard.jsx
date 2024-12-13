@@ -43,12 +43,12 @@ import { usePathname, useRouter } from "next/navigation"
      <nav className="relative ">
 
         {/* top navbar  */}
-        <div className="px-28 py-4 flex items-center justify-between border-b">
+        <div className="px-2 lg:px-28 py-4 flex items-center justify-between border-b">
             
             {/* top left  */}
             <div className="flex items-center gap-2">
             <Link href="/"><Image src={Logo} className="h-12 w-auto" alt="Rupee API" /></Link>
-                <Link href="/"><h2 className="text-3xl font-bold">Sambandha</h2></Link>
+                <Link href="/"><h2 className="text-xl lg:text-3xl font-bold">Sambandha</h2></Link>
 
                 <div className="flex items-center pl-8 gap-1">
                     <div className="h-5 w-5 rounded-full bg-purple-600"></div>
@@ -59,9 +59,9 @@ import { usePathname, useRouter } from "next/navigation"
 
             {/* top right */}
             <div className="flex items-center gap-6">
-                <Link href="/" className="text-sm text-gray-700">FAQ&apos;s</Link>
-                <Link href="/" className="text-sm text-gray-700">Contact</Link>
-                <Link href="/" className="text-sm text-gray-700">Feedback</Link>
+                <Link href="/" className=" hidden lg:block text-sm text-gray-700">FAQ&apos;s</Link>
+                <Link href="/" className=" hidden lg:block text-sm text-gray-700">Contact</Link>
+                <Link href="/" className=" hidden lg:block text-sm text-gray-700">Feedback</Link>
 
                 <SignedIn>
                     <Button variant="outline" size="icon">
@@ -76,7 +76,7 @@ import { usePathname, useRouter } from "next/navigation"
         </div>
 
 
-        <DashboardNavLinks />
+        <DashboardNavLinks  />
       
      </nav>
     )

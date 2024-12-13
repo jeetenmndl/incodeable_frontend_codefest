@@ -1,6 +1,7 @@
 "use server"
 
 import { currentUser } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 import {v4 as uuidv4} from 'uuid';
 
 
@@ -34,7 +35,7 @@ const postBooking = async (data)=>{
   };
   
     const query = await fetch(`${process.env.SERVER}/postBookings`, settings)
-    const response = await query.json()
+    const response = await query.json();
   
     return response
 

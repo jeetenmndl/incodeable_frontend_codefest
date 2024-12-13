@@ -14,7 +14,7 @@ const data = response.success?response.data[0] : null;
 
 
   return (
-    <main className='px-28 py-4 '>
+    <main className='px-4 lg:px-28 py-4 '>
     {
 
       response.success?

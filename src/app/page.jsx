@@ -13,15 +13,15 @@ export default function Home() {
   return (
     <>
    
-    <main className=' px-2 md:px-6 lg:px-12 xl:px-28 md:pt-8 flex flex-col-reverse lg:flex-row gap-8 xl:gap-12 md:justify-between'>
+    <main className=' w-full px-2 md:px-6 lg:px-12 xl:px-28 md:pt-8 flex flex-col-reverse lg:flex-row gap-8 xl:gap-12 md:justify-between'>
 
 
       
     <section className="lg:w-2/3 ">
 
-    <section className="grid grid-cols-1 lg:grid-cols-3 px-6 lg:px-0 gap-6 [&>div]:rounded-md">
+    <section className=" flex overflow-x-scroll lg:grid lg:grid-cols-3 px-6 lg:px-0 gap-6 [&>div]:rounded-md">
       
-      <div className="border lg:h-96 p-5 lg:p-3 bg-green-100">
+      <div className="border min-w-72 lg:h-96 p-5 lg:p-3 bg-green-100">
         <h3 className="font-medium text-2xl">Build a virtual virtual Family</h3>
       <p className="text-xs text-gray-600 pt-2">Create a supportive virtual family for students, fostering mental well-being through connection, empathy.</p>
       <hr className="border-blue-200 mt-5" />
@@ -31,7 +31,7 @@ export default function Home() {
       </div>
 
 
-      <div className="border lg:h-96 p-5 lg:p-3 bg-blue-100">
+      <div className="border min-w-72  lg:h-96 p-5 lg:p-3 bg-blue-100">
         <h3 className="font-medium text-2xl">Share Thoughts & Problems</h3>
       <p className="text-xs text-gray-600 pt-2">Share thoughts and problems in a safe space, connecting with peers for support and understanding</p>
       <hr className="border-blue-200 mt-5" />
@@ -40,7 +40,7 @@ export default function Home() {
       </div>
       </div>
       
-      <div className="border lg:h-96 p-5 lg:p-3 bg-orange-100">
+      <div className="border min-w-72  lg:h-96 p-5 lg:p-3 bg-orange-100">
         <h3 className="font-medium text-2xl">Track Down the Resolution</h3>
       <p className="text-xs text-gray-600 pt-2">Track down the resolution of shared issues, ensuring continuous support and effective solutions.</p>
       <hr className="border-blue-200 mt-5" />

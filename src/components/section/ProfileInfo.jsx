@@ -9,7 +9,7 @@ import Link from "next/link"
 export default function ProfileInfo({data, image}) {
   // console.log(data)
   return (
-      <Card className="w-2/3 mx-auto">
+      <Card className="lg:w-2/3 mx-auto">
         <CardHeader className="flex flex-row items-center gap-4">
           <Image src={image} alt={data.name+" Sambandha"} className="w-20 h-20 rounded-full" />
             
