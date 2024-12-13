@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const data = {
     darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,6 +9,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			main: "#8a51fb",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -81,3 +82,5 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
+export default data;
