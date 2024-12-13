@@ -16,9 +16,9 @@ import {
     FormLabel,
     FormMessage,
   } from "@/components/ui/form"
+import { Input } from '../ui/input'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
 import {
     Select,
     SelectContent,
@@ -28,153 +28,144 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-import { Input } from '../ui/input'
+import { Textarea } from '../ui/textarea'
 import { useToast } from '@/hooks/use-toast'
-import DocumentUpload from './DocumentUpload'
-import SelfieCapture from './SelfieCapture'
-import postUser from '@/lib/actions/postUser'
+import { Switch } from '../ui/switch'
+import postIssue from '@/lib/actions/postIssue'
+// import { revalidatePath } from 'next/cache'
   
 
 
 const formSchema = z.object({
-    address: z.string().min(3, {
-      message : "Enter proper address.",
+    title: z.string().min(3, {
+      message : "Enter proper title.",
     }),
-    age: z.string().min(1, {
-        message : "Enter proper age.",
+    description: z.string().min(20, {
+        message : "Text must be more than 20 characters.",
+    }).max(1000, {message: "Limit exceed, less than 1000 characters allowed"}),
+    preferredCharacter: z.string().min(3, {
+        message : "Choose one.",
     }),
-    character: z.string().min(3, {
-        message : "Choose one character.",
-    }),
-    username: z.string().min(3, {
-      message : "At least 3 letters.",
-  }),
+    private: z.boolean()
     
   })
 
-const ProfileForm = () => {
+const IssueForm = () => {
 
     const router = useRouter()
     const {toast}= useToast();
     const [loading, setLoading] = useState(false);
-    
-  const [documentImage, setDocumentImage] = useState(null);
-  const [selfieImage, setSelfieImage] = useState(null);
 
+
+    
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            address:"",
-            character:"",
-            age:"",
-            username:""
+            title:"",
+            description:"",
+            preferredCharacter:"",
+            private: false,
     },
     })
 
 
     // 2. Define a submit handler.
-    async function onSubmit(values) {
-        
-      const response = await postUser(values, documentImage, selfieImage);
+    async function submit(values) {
+        try {
+            setLoading(true);
+            const response = await postIssue(values);
 
-      console.log(response)
-
-      if(response.success){
-        toast({
-          title: "Congratulations",
-          description:"Account Created Successfully"
-        })
-      }
-      else{
-        toast({
-          title: "OOPS!",
-          description: response.message,
-          variant: "destructive"
-        })
-      }
-        
-
+            console.log("in issue page", response);
+            if(response.success){
+                toast({
+                    title: "Congratulations !",
+                    description: "Issue uploaded sucessfully.",
+                })
+                router.push("/my-issues")
+            }
+            else{
+                toast({
+                    title: "Oops !",
+                    description: "Some new error occured ",
+                    variant: "destructive",
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            toast({
+                title: "Oops !",
+                description: "Some error occured.",
+                variant: "destructive",
+            })
+            
+        }finally{
+            setLoading(false);
+        }
     }
 
   return (
     
     <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} >
-
-    <Card className="grid grid-cols-2 gap-2">
-
-    <div>
+    <form onSubmit={form.handleSubmit(submit) } className="sticky top-8 pb-8">
+    <Card className="shadow-lg">
         <CardHeader>
-            <CardTitle>Verification Form</CardTitle>
+            <CardTitle>Share your Issue</CardTitle>
             <CardDescription>Fill the details to proceed </CardDescription>
         </CardHeader>
+
         <CardContent>
+        <div className="space-y-2">
+
+            {/* title */}
+            <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+                <FormItem>
+                <FormLabel className="pt-1">Title</FormLabel>
+                <FormControl>
+                   <Input className="placeholder:text-gray-400 font-light" placeholder="Enter Title" {...field} />
+                </FormControl>
+                {/* <FormDescription>
+                    This is your public display name.
+                </FormDescription> */}
+                <FormMessage />
+                </FormItem>
+            )}
+            />
+
+
+            {/* description  */}
+            <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+                <FormItem>
+                    <FormLabel className="pt-1">Description</FormLabel>
+                <FormControl>
+                <Textarea
+                  placeholder="Tell us more"
+                  className="resize-none placeholder:text-gray-400 font-light"
+                  {...field}
+                />
+                </FormControl>
+                {/* <FormDescription>
+                    This is your public display name.
+                </FormDescription> */}
+                <FormMessage />
+                </FormItem>
+            )}
+            />
             
-        <div className="space-y-4">
 
-           {/* username */}
-           <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-                <FormItem>
-                <FormLabel className="pt-1">Username</FormLabel>
-                <FormControl>
-                   <Input className="placeholder:text-gray-400 font-light" placeholder="Main road, Nepal" {...field} />
-                </FormControl>
-                <FormDescription>
-                    Make sure it does not disclose your identity.
-                </FormDescription>
-                <FormMessage />
-                </FormItem>
-            )}
-            />
-
-            {/* address */}
-            <FormField
-            control={form.control}
-            name="address"
-            render={({ field }) => (
-                <FormItem>
-                <FormLabel className="pt-1">Address</FormLabel>
-                <FormControl>
-                   <Input className="placeholder:text-gray-400 font-light" placeholder="Main road, Nepal" {...field} />
-                </FormControl>
-                {/* <FormDescription>
-                    This is your public display name.
-                </FormDescription> */}
-                <FormMessage />
-                </FormItem>
-            )}
-            />
-
-
-             {/* age */}
-            <FormField
-            control={form.control}
-            name="age"
-            render={({ field }) => (
-                <FormItem>
-                <FormLabel className="pt-1">Age</FormLabel>
-                <FormControl>
-                   <Input type="number" className="placeholder:text-gray-400 font-light" placeholder="Enter Age" {...field} />
-                </FormControl>
-                {/* <FormDescription>
-                    This is your public display name.
-                </FormDescription> */}
-                <FormMessage />
-                </FormItem>
-            )}
-            />
-
-             {/* character */}
+             {/* preferredCharacter */}
              <FormField
             control={form.control}
-            name="character"
+            name="preferredCharacter"
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Your Character</FormLabel>
+                    <FormLabel>Preferred Character</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger  className="w-full" >
@@ -200,43 +191,49 @@ const ProfileForm = () => {
             )}
             />
 
-            <DocumentUpload setDocumentImage={setDocumentImage} />
-
-
-           
+            {/* private  */}
+            <FormField
+            control={form.control}
+            name="private"
+            render={({ field }) => (
+            <FormItem className="flex mt-2 flex-row items-center justify-between">
+            <div>
+                <FormLabel>
+                Build Relation?
+                </FormLabel>
+            </div>
+            <FormControl>
+                <Switch
+                checked={field.value}
+                onCheckedChange={field.onChange}
+                />
+            </FormControl>
+            </FormItem>
+            )}
+            />
         </div>
 
         </CardContent>
+
         <CardFooter>
             {
               
                 !loading
                 ?
-                <div className='w-full  space-y-3'>
-                <Button type="submit" className="w-full bg-main hover:bg-purple-600">Submit</Button>
+                <div className='w-full '>
+                <Button type="submit" className="w-full bg-main">Submit</Button>
                 </div>
                 :
-                <Button className="w-full bg-main " disabled>
+                <Button className="w-full bg-main" disabled>
                     <Loader2 className=" h-4 w-4 animate-spin" />
                 </Button>
             }
             
         </CardFooter>
-
-        </div>
-
-        <div className='p-4'>
-            <div className='h-full w-full'>
-                 <SelfieCapture setSelfieImage={setSelfieImage} selfieImage={selfieImage} />
-
-            </div>
-        </div>
     </Card>
-
-
     </form>
     </Form>
   )
 }
 
-export default ProfileForm
+export default IssueForm
