@@ -87,7 +87,7 @@ const IssueForm = () => {
             else{
                 toast({
                     title: "Oops !",
-                    description: "Some new error occured ",
+                    description: response.message,
                     variant: "destructive",
                 })
             }

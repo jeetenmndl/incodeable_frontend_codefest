@@ -4,7 +4,10 @@ import getMyRelations from '@/lib/actions/getMyRelations';
 import { currentUser } from '@clerk/nextjs/server'
 import { Smile } from 'lucide-react';
 import Image from 'next/image';
-import AdLong from "@/../public/adLong.webp"
+import Ad1 from "@/../public/ad1.png"
+import Ad2 from "@/../public/ad2.png"
+import Ad3 from "@/../public/ad3.png"
+
 import React from 'react'
 import { ChannelList } from 'stream-chat-react';
 
@@ -36,8 +39,10 @@ const page = async ({params}) => {
         </section>
 
         <section className='w-1/6'>
-          <div className='p-4'>
-            <Image src={AdLong} className='w-3/5' alt='ad 1' />
+          <div className='p-4 space-y-4'>
+            <Image src={Ad1} className='w-full rounded-lg shadow-md' alt='ad 1' />
+            <Image src={Ad2} className='w-full rounded-lg shadow-md' alt='ad 2' />
+            <Image src={Ad3} className='w-full rounded-lg shadow-md' alt='ad 3' />
           </div>
             
         </section>

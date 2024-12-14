@@ -4,8 +4,9 @@ import getMyRelations from '@/lib/actions/getMyRelations';
 import { currentUser } from '@clerk/nextjs/server'
 
 import Image from 'next/image';
-import AdLong from "@/../public/adLong.webp"
-import React from 'react'
+import Ad1 from "@/../public/ad1.png"
+import Ad2 from "@/../public/ad2.png"
+import Ad3 from "@/../public/ad3.png"
 
 const page = async ({params}) => {
 
@@ -18,19 +19,21 @@ const page = async ({params}) => {
   return (
     <main className='px-4 flex '>
 
-    <section className='w-1/6'>
+    <section className='lg:w-1/6'>
       <RelationChats data={relations.data} active={id} />
     </section>
 
-    <section className='w-4/6 border-x'>
+    <section className='w-full lg:w-4/6 border-x'>
       <ChatPage userID={userID} channelID={id} />
 
     </section>
 
-    <section className='w-1/6'>
-        <div className='p-4'>
-                    <Image src={AdLong} className='w-3/5' alt='ad 1' />
-                  </div>
+    <section className='lg:w-1/6'>
+      <div className='p-4 space-y-4'>
+        <Image src={Ad1} className='w-full rounded-lg shadow-md' alt='ad 1' />
+        <Image src={Ad2} className='w-full rounded-lg shadow-md' alt='ad 2' />
+        <Image src={Ad3} className='w-full rounded-lg shadow-md' alt='ad 3' />
+      </div>
     </section>
 
 </main>

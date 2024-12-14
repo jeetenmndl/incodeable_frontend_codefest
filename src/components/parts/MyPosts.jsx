@@ -72,7 +72,7 @@ export default function MyPosts({data}) {
 
         {/* Content */}
         <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
-        <p className="text-sm leading-6 text-muted-foreground mb-4">{data.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates delectus quasi nesciunt repellat eius tempore recusandae similique quaerat animi cupiditate! Aperiam at aspernatur alias perspiciatis quae, nulla distinctio impedit fugiat?</p>
+        <p className="text-sm leading-6 text-muted-foreground mb-4">{data.description} </p>
 
         {/* Footer */}
         <div className="flex justify-between items-center">

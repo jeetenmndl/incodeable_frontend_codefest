@@ -71,6 +71,8 @@ const RelateButton = ({issuerName, userID, suggestion}) => {
       }
       finally{
         // await streamClient.disconnectUser();
+        await streamClient.disconnectUser();
+
         setLoading(false)
       }
     };
