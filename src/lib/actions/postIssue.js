@@ -48,7 +48,7 @@ const postIssue = async (data)=>{
 } catch (error) {
         return {
             success: false,
-            message: error
+            message: "Internal server error"+error
         }; 
 }
   }

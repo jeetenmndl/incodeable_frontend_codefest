@@ -15,7 +15,7 @@ import {
 // import 'stream-chat-react/dist/css/index.css';
 
 //eslint-disable-next-line
-// import "@stream-io/stream-chat-css/dist/v2/css/index.css";
+import "stream-chat-react/dist/css/v2/index.css";
 
 import { streamToken } from '@/lib/actions/stream';
 import { Separator } from '@radix-ui/react-select';
