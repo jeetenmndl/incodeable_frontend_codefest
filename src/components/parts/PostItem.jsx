@@ -95,7 +95,7 @@ const link = data.private?`${process.env.NEXT_PUBLIC_DOMAIN}/issue-reply/${data.
         <p className="text-sm leading-6 text-muted-foreground mb-4">{data.description}</p>
 
         {/* Footer */}
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col md:flex-row lg:justify-between lg:items-center">
           <div>
             {
               data.private?
@@ -105,7 +105,7 @@ const link = data.private?`${process.env.NEXT_PUBLIC_DOMAIN}/issue-reply/${data.
             }
           </div>
 
-          <div className="flex items-center  gap-4 ">
+          <div className="flex items-center  gap-4 mt-2 lg:mt-0 justify-end lg:justify-normal ">
 
             {
               data.private?

@@ -13,7 +13,7 @@ const postReport = async (type, id, message)=>{
 
     let details = {
         reportedBy: user.id,
-        commentedBy: user.id,
+        type: type,
         message: message,
         typeID: id,
         status: "pending"

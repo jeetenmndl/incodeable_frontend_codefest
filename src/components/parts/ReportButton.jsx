@@ -16,6 +16,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import postReport from '@/lib/actions/postReport'
+import { useToast } from '@/hooks/use-toast'
 // import { submitReport } from '../actions/report'
 
 const reportOptions = [
@@ -27,6 +29,8 @@ const reportOptions = [
 
 export function ReportButton({content}) {
 
+  const {toast} = useToast();
+
     
   const [isOpen, setIsOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -34,9 +38,20 @@ export function ReportButton({content}) {
 
   const handleReport = async (reason) => {
     setIsSubmitting(true)
-    // const result = await submitReport(reason)
-    setResult(result)
-    console.log(content);
+    const result = await postReport("issue", content.id, reason )
+    console.log(result);
+    if(result.success){
+      toast({
+        title: "Reported.",
+        description: "Report uploaded."
+      })
+    }
+    else{
+      toast({
+        title: "OOPS.",
+        description: "Some error occured."
+      })
+    }
     setIsSubmitting(false)
     setTimeout(() => setIsOpen(false), 2000) 
   }
@@ -70,11 +85,7 @@ export function ReportButton({content}) {
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
-        {result && (
-          <div className={result.success ? 'text-green-600' : 'text-red-600'}>
-            {result.message}
-          </div>
-        )}
+        
       </DialogContent>
     </Dialog>
   )

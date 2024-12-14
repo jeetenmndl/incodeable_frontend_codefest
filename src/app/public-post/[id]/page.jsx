@@ -60,7 +60,7 @@ export default async function Page({params}) {
       <PostItem data={response.issue[0]} />
 
 
-      <Card className="mt-4 p-4">
+      <Card className="mt-4 p-4 overflow-x-scroll">
        <WriteComment id={id} />
 
         <div className="space-y-4">

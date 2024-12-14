@@ -9,10 +9,13 @@ import postReComment from '@/lib/actions/postReComment'
 import { useToast } from '@/hooks/use-toast'
 import { ReComment } from './ReComment'
 import updateCommentAgree from '@/lib/actions/updateCommentAgree'
+import Image from 'next/image'
+import Gemini from "@/../public/gemini.webp"
+import Chatgpt from "@/../public/gemini.webp"
 
 export function Comment({comment}) {
 
-  console.log(comment)
+  // console.log(comment)
   
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [voteCount, setVoteCount] = useState(comment.agree)
@@ -108,7 +111,16 @@ export function Comment({comment}) {
       </Button>
       <div className="flex-1">
         <div className="flex items-start gap-2">
-          <div className="w-6 h-6 rounded-full bg-gray-200" />
+          <div className="w-6 h-6 rounded-full bg-gray-200" >
+            {
+              comment.userName=="Gemini"?
+              <Image src={Gemini} className='h-6 w-6 rounded-full' alt="gemini" />:
+              comment.userName=="Chatgpt"?
+              <Image src={Chatgpt} className='h-6 w-6 rounded-full' alt="chat gpt" />:""
+
+
+            }
+          </div>
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <span className="font-medium text-sm">{comment.userName}</span>

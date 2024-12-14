@@ -6,7 +6,7 @@ import getMyIssues from '@/lib/actions/getMyIssues';
 
 const Page = async () => {
     const issues = await getMyIssues();
-    // console.log(issues.data)
+    console.log(issues)
 
 
   return (

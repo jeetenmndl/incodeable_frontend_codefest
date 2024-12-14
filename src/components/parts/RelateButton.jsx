@@ -31,13 +31,15 @@ const RelateButton = ({issuerName, userID, suggestion}) => {
         await streamClient.connectUser({ id: suggestion.repliedBy, name: suggestion.userName }, token1);
 
         await streamClient.disconnectUser();
+        // await streamClient.disconnect();
+
 
         // Connect issuer to steram
         const token2 = await streamToken(userID);
 
         await streamClient.connectUser({ id: userID, name: issuerName }, token2);
 
-        await connectUser(userID, issuerName);
+        // await connectUser(userID, issuerName);
   
         // Create a new channel
 

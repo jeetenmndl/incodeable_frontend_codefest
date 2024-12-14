@@ -35,6 +35,8 @@ const buildRelation = async (issuerName, suggestion, issueToken, suggestionToken
   
     const query = await fetch(`${process.env.SERVER}/buildRelation`, settings)
     const response = await query.json();
+
+    console.log("response of build relation",response);
   
     return response
 

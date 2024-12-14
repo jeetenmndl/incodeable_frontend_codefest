@@ -19,6 +19,13 @@ export default function Home() {
       
     <section className="lg:w-2/3 ">
 
+{/* 
+    <section>
+      <h2 className="text-2xl font-bold mb-4">Your Path to Peace at Your Fingertips</h2>
+    </section> */}
+
+    
+
     <section className=" flex overflow-x-scroll lg:overflow-hidden lg:grid lg:grid-cols-3 px-6 lg:px-0 gap-6 [&>div]:rounded-md">
       
       <div className="border min-w-72 lg:min-w-36 lg:h-96 p-5 lg:p-3 bg-green-100">
@@ -53,8 +60,7 @@ export default function Home() {
 
     
 
-      
-      <p className="mb-6 leading-8 hidden">There are students who know they can solve their problems by discussing with their specific family members. Yet they can’t share their feelings and problems because of various reasons leading to mental health issues. Create and build a web relation that we are in need of.</p>
+
 
 
 
@@ -83,7 +89,7 @@ export default function Home() {
 
 <div className="py-6 px-28">
   <p className="text-gray-400 font-semibold">
-    Incodeable
+    Sambandha
   </p>
   
 </div>

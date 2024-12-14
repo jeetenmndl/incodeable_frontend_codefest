@@ -4,7 +4,7 @@
 import { currentUser } from "@clerk/nextjs/server";
 
 
-const postFeedback = async (type, id, message)=>{
+const postFeedback = async ( message)=>{
 
     const user = await currentUser();
 
