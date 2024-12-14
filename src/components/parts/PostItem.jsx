@@ -6,8 +6,28 @@ import { ArrowBigDown, ArrowBigUp, MessageSquare, Share2, MoreVertical, Reply } 
 import Link from "next/link"
 import { useState } from "react"
 import { ReportButton } from "./ReportButton"
+import { useToast } from "@/hooks/use-toast"
 
 export default function PostItem({data}) {
+  const [isCopied, setIsCopied] = useState(false);
+  const {toast} = useToast();
+
+const link = data.private?`${process.env.NEXT_PUBLIC_DOMAIN}/issue-reply/${data.id}`:`${process.env.NEXT_PUBLIC_DOMAIN}/public-post/${data.id}`;
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(link)
+      setIsCopied(true)
+      toast({
+        title: "Success",
+        description: "Copied to Clipboard."
+      })
+      setTimeout(() => setIsCopied(false), 2000) 
+    } catch (err) {
+      console.error('Failed to copy text: ', err)
+    }
+  }
+
 
   // console.log(data)
 
@@ -105,9 +125,13 @@ export default function PostItem({data}) {
             }
           
 
-            <Button variant="secondary" size="sm" className=" group-hover:bg-white h-8 gap-2 rounded-full">
+            <Button variant="secondary" onClick={copyToClipboard} size="sm" className=" group-hover:bg-white h-8 gap-2 rounded-full">
               <Share2 className="h-4 w-4" />
-              Share
+              {
+                isCopied?
+                "Copied":
+                "Share"
+              }
             </Button>
           </div>
         </div>

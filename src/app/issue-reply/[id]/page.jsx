@@ -7,7 +7,7 @@ export default async function Page({params}) {
   const {id} = await params;
 
 const response = await getSpecificIssue(id) ;
-console.log(response.issue[0].reply)
+// console.log(response.issue[0].reply)
 
   return (
     <div className="max-w-2xl mx-auto p-4">

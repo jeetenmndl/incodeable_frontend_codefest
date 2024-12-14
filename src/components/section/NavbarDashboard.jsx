@@ -61,7 +61,7 @@ import DashboardNavLinks from "../parts/DashboardNavLinks"
             <div className="flex items-center gap-6">
                 <Link href="/" className=" hidden lg:block text-sm text-gray-700">FAQ&apos;s</Link>
                 <Link href="/" className=" hidden lg:block text-sm text-gray-700">Contact</Link>
-                <Link href="/" className=" hidden lg:block text-sm text-gray-700">Feedback</Link>
+                <Link href="/feedback" className=" hidden lg:block text-sm text-gray-700">Feedback</Link>
 
                 <SignedIn>
                     <Button variant="outline" size="icon">
