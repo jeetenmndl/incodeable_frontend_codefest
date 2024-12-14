@@ -13,7 +13,7 @@ const Ngo = () => {
         <hr className="border-gray-300 mx-28 my-8" />
 
 <section className="py-8  px-2 md:px-6 lg:px-12 xl:px-28 ">
- <h2 className="text-3xl font-semibold">NGO initiative highlights.</h2>
+ <h2 className="text-xl lg:text-3xl font-semibold">NGO initiative highlights.</h2>
  <article className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
    <Card>
    <CardHeader className="relative">

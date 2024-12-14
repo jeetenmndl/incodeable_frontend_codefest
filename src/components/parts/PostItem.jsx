@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import { ArrowBigDown, ArrowBigUp, MessageSquare, Share2, MoreVertical, Reply } from 'lucide-react'
 import Link from "next/link"
 import { useState } from "react"
+import { ReportButton } from "./ReportButton"
 
 export default function PostItem({data}) {
 
@@ -64,16 +65,14 @@ export default function PostItem({data}) {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="h-8 w-8">
-              <MoreVertical className="h-4 w-4" />
-            </Button>
+            <ReportButton content={data} />
           </div>
 
         </div>
 
         {/* Content */}
         <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
-        <p className="text-sm leading-6 text-muted-foreground mb-4">{data.description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates delectus quasi nesciunt repellat eius tempore recusandae similique quaerat animi cupiditate! Aperiam at aspernatur alias perspiciatis quae, nulla distinctio impedit fugiat?</p>
+        <p className="text-sm leading-6 text-muted-foreground mb-4">{data.description}</p>
 
         {/* Footer */}
         <div className="flex justify-between items-center">

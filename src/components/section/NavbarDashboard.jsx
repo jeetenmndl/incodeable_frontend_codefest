@@ -47,7 +47,7 @@ import DashboardNavLinks from "../parts/DashboardNavLinks"
             
             {/* top left  */}
             <div className="flex items-center gap-2">
-            <Link href="/"><Image src={Logo} className="h-12 w-auto" alt="Rupee API" /></Link>
+            <Link href="/"><Image src={Logo} className="h-8 lg:h-12 w-8 lg:w-12" alt="Rupee API" /></Link>
                 <Link href="/"><h2 className="text-xl lg:text-3xl font-bold">Sambandha</h2></Link>
 
                 <div className="flex items-center pl-8 gap-1">

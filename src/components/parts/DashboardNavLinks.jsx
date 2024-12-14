@@ -22,7 +22,7 @@ const DashboardNavLinks = () => {
     
 
   return (
-    <div className=" lg:flex lg:justify-between lg:items-center  lg:px-28 border-b">
+    <div className="flex lg:justify-between items-center  lg:px-28 border-b">
         <div className="hidden lg:flex gap-1 items-center  ">
             {
                 navLinks.map((link)=>{

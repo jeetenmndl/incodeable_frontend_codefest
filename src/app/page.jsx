@@ -62,7 +62,7 @@ export default function Home() {
 
 
       <div className="my-8 px-2 md:px-0">
-        <h2 className="text-3xl font-semibold ">Issues Matching Your Character
+        <h2 className="text-xl lg:text-3xl font-semibold ">Issues Matching Your Character
         </h2>
         
         <Feed />

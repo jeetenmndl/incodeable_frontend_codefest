@@ -18,8 +18,8 @@ const Feed = async () => {
         <>
         <Tabs defaultValue="public">
         <TabsList className="mb-4">
-          <TabsTrigger value="public" className="px-20">Public</TabsTrigger>
-          <TabsTrigger value="private" className="px-20">Private</TabsTrigger>
+          <TabsTrigger value="public" className="px-4 lg:px-20">Public</TabsTrigger>
+          <TabsTrigger value="private" className="px-4 lg:px-20">Private</TabsTrigger>
         </TabsList>
         <TabsContent value="public" className="space-y-6">
         {

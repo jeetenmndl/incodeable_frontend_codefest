@@ -25,7 +25,7 @@ const reportOptions = [
   { label: 'Report inappropriate content', value: 'inappropriate' },
 ]
 
-export function ReportDialog({content}) {
+export function ReportButton({content}) {
 
     
   const [isOpen, setIsOpen] = useState(false)

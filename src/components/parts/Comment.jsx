@@ -8,11 +8,14 @@ import timeAgo from '@/lib/actions/timeAgo'
 import postReComment from '@/lib/actions/postReComment'
 import { useToast } from '@/hooks/use-toast'
 import { ReComment } from './ReComment'
+import updateCommentAgree from '@/lib/actions/updateCommentAgree'
 
 export function Comment({comment}) {
+
+  console.log(comment)
   
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const [voteCount, setVoteCount] = useState(0)
+  const [voteCount, setVoteCount] = useState(comment.agree)
   const [isUpvoted, setIsUpvoted] = useState(false)
   const [isDownvoted, setIsDownvoted] = useState(false)
   const [isReplyBoxOpen, setIsReplyBoxOpen] = useState(false)
@@ -20,7 +23,7 @@ export function Comment({comment}) {
 
   const {toast} = useToast();
 
-  const handleUpvote = () => {
+  const handleUpvote = async() => {
     if (isUpvoted) {
       setVoteCount(prev => prev - 1)
       setIsUpvoted(false)
@@ -30,12 +33,14 @@ export function Comment({comment}) {
         setIsDownvoted(false)
       } else {
         setVoteCount(prev => prev + 1)
+        const result = await updateCommentAgree(comment.id, "increase")
+        console.log(result)
       }
       setIsUpvoted(true)
     }
   }
 
-  const handleDownvote = () => {
+  const handleDownvote = async () => {
     if (isDownvoted) {
       setVoteCount(prev => prev + 1)
       setIsDownvoted(false)
@@ -45,6 +50,8 @@ export function Comment({comment}) {
         setIsUpvoted(false)
       } else {
         setVoteCount(prev => prev - 1)
+        const result = await updateCommentAgree(comment.id, "decrease")
+        console.log(result)
       }
       setIsDownvoted(true)
     }
