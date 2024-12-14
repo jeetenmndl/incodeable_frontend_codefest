@@ -39,8 +39,8 @@ export default function Home() {
 
 
       <div className="border min-w-72 lg:min-w-36  lg:h-96 p-5 lg:p-3 bg-blue-100">
-        <h3 className="font-medium text-2xl">Blend of AI and Human suggestions</h3>
-      <p className="text-xs text-gray-600 pt-2">Get suggestions from our Mitra AI and major AI you know.</p>
+        <h3 className="font-medium text-2xl">Blend of AI and Human solutions</h3>
+      <p className="text-xs text-gray-600 pt-2">Get suggestions from our Mitra AI and major AI you know with its reply from human.</p>
       <hr className="border-blue-200 mt-5" />
       <div className="w-full px-8 py-4">
         <Image src={Card2} className="w-full " alt="card1" />
@@ -48,7 +48,7 @@ export default function Home() {
       </div>
       
       <div className="border min-w-72  lg:min-w-36 lg:h-96 p-5 lg:p-3 bg-orange-100">
-        <h3 className="font-medium text-2xl">Book Video Counselling Session</h3>
+        <h3 className="font-medium text-2xl">Book Counselling Session</h3>
       <p className="text-xs text-gray-600 pt-2">Book a therapy session with psychiatrist or counsellors that matches your problem.</p>
       <hr className="border-blue-200 mt-5" />
       <div className="w-full px-8 py-4">

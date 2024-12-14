@@ -46,7 +46,7 @@ Phone Number: 01-4480477 <br />
        <div className="absolute top-2 right-4">
        <Image className="w-20 h-20 rounded-full" src={Yoga} alt="fitness" />
        </div>
-       <CardTitle> Kathmandu Fitness - Gym center
+       <CardTitle> Mindful Yoga studio
        </CardTitle>
        <CardDescription> December 18, 2024
        </CardDescription>

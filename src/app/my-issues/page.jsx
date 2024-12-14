@@ -21,7 +21,7 @@ const Page = async () => {
         <Tabs defaultValue="public">
         <TabsList className=" mb-4">
           <TabsTrigger value="public" className="px-20 ">Public</TabsTrigger>
-          <TabsTrigger value="private" className="px-20 ">Private</TabsTrigger>
+          <TabsTrigger value="private" className="px-20 ">Relation</TabsTrigger>
         </TabsList>
         <TabsContent value="public">
           <div className="grid grid-cols-2 gap-3">
