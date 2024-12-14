@@ -275,6 +275,25 @@ export default function BookingForm({bookings}) {
 
   {/* </div> */}
 </Card>
+<Dialog open={open} onOpenChange={setOpen}>
+<DialogTrigger asChild>
+<p className='text-blue-600 text-sm mt-4 underline cursor-pointer'>Ask our system for perfect counsellor?</p>
+
+</DialogTrigger>
+<DialogContent className="sm:max-w-[425px]">
+  <DialogHeader>
+    <DialogTitle>Enter your text</DialogTitle>
+  </DialogHeader>
+  <div className="grid gap-4 py-4">
+    <Textarea
+      placeholder="Type your message here."
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+    />
+    <Button onClick={handleButtonClick}>Submit</Button>
+  </div>
+</DialogContent>
+</Dialog>
 
 </div>
 
@@ -322,25 +341,7 @@ export default function BookingForm({bookings}) {
 </Card>
 
 
-<Dialog open={open} onOpenChange={setOpen}>
-<DialogTrigger asChild>
-<p className='text-blue-600 text-sm mt-4 underline cursor-pointer'>Ask our system for perfect counsellor?</p>
 
-</DialogTrigger>
-<DialogContent className="sm:max-w-[425px]">
-  <DialogHeader>
-    <DialogTitle>Enter your text</DialogTitle>
-  </DialogHeader>
-  <div className="grid gap-4 py-4">
-    <Textarea
-      placeholder="Type your message here."
-      value={text}
-      onChange={(e) => setText(e.target.value)}
-    />
-    <Button onClick={handleButtonClick}>Submit</Button>
-  </div>
-</DialogContent>
-</Dialog>
 
 
 </div>
