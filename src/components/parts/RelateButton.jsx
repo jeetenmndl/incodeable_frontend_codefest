@@ -21,7 +21,7 @@ const RelateButton = ({issuerName, userID, suggestion}) => {
     const handleAccept = async () => {
 
       const streamClient = StreamChat.getInstance(process.env.NEXT_PUBLIC_STREAM_API_KEY);
-      
+
       try {
         setLoading(true);
 
@@ -61,7 +61,7 @@ const RelateButton = ({issuerName, userID, suggestion}) => {
         }else{
           toast({
             title: "OOPS!",
-            description: "Internal Server Error",
+            description: response.message,
             variant: "destructive"
           })
         }
