@@ -22,7 +22,8 @@ const getAllIssues = async ()=>{
   };
   
     const query = await fetch(`${process.env.SERVER}/get_all_issues_api`, settings)
-    const response = await query.json()
+    //const response = await query.json()
+    const response = []
   
     return response
   }
